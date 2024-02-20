@@ -11,7 +11,7 @@ various criteria like Genre, Release date, actors,  Ratings, Popularity, Read De
   - Api from Movies DB
   - Dio Package and Handle Exception error
   - Bloc as Statemangement
-for UI  :-
+- for UI  :-
  -animate_do
 - shimmer
 - Cached network image

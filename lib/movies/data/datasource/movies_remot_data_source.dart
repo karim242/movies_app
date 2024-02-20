@@ -5,7 +5,6 @@ import 'package:movies_app/core/network/error_mes_model.dart';
 import 'package:movies_app/movies/data/model/movies_details_model.dart';
 import 'package:movies_app/movies/data/model/movies_model.dart';
 import 'package:movies_app/movies/data/model/recommendation_model.dart';
-import 'package:movies_app/movies/domain/entites/recommendation.dart';
 import 'package:movies_app/movies/domain/usecase/get_movies_details.dart';
 import 'package:movies_app/movies/domain/usecase/get_recommendation.dart';
 

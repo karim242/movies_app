@@ -111,7 +111,7 @@ class MovieDetailContent extends StatelessWidget {
                                   ),
                                   const SizedBox(width: 4.0),
                                   Text(
-                                    (state.movieDetail!.voteAverage / 2)
+                                    (state.movieDetail!.voteAverage)
                                         .toStringAsFixed(1),
                                     style: const TextStyle(
                                       fontSize: 16.0,
@@ -173,8 +173,8 @@ class MovieDetailContent extends StatelessWidget {
                       from: 20,
                       duration: const Duration(milliseconds: 500),
                       child: const Text(
-                       AppString.moreLikeThis,
-                        style:  TextStyle(
+                        AppString.moreLikeThis,
+                        style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w500,
                           letterSpacing: 1.2,

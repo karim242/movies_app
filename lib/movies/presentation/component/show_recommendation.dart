@@ -7,6 +7,7 @@ import 'package:movies_app/core/utiles/enums.dart';
 import 'package:movies_app/movies/presentation/controller/movies_details_bloc.dart';
 import 'package:movies_app/movies/presentation/controller/movies_details_state.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:movies_app/movies/presentation/views/7.2%20movie_detail_screen.dart';
 
 class ShowRecommendations extends StatelessWidget {
   const ShowRecommendations({super.key});
@@ -29,31 +30,41 @@ class ShowRecommendations extends StatelessWidget {
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
                   final recommendation = state.recommendation[index];
-                  return FadeInUp(
-                    from: 20,
-                    duration: const Duration(milliseconds: 500),
-                    child: ClipRRect(
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(4.0)),
-                      child: CachedNetworkImage(
-                        imageUrl:
-                            ApiConstance.imageUrl(recommendation.backdropPath!),
-                        placeholder: (context, url) => Shimmer.fromColors(
-                          baseColor: Colors.grey[850]!,
-                          highlightColor: Colors.grey[800]!,
-                          child: Container(
-                            height: 170.0,
-                            width: 120.0,
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.circular(8.0),
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (BuildContext context) {
+                        return MovieDetailScreen(
+                          id: recommendation.id,
+                        );
+                      }));
+                    },
+                    child: FadeInUp(
+                      from: 20,
+                      duration: const Duration(milliseconds: 500),
+                      child: ClipRRect(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(4.0)),
+                        child: CachedNetworkImage(
+                          imageUrl: ApiConstance.imageUrl(
+                              recommendation.backdropPath!),
+                          placeholder: (context, url) => Shimmer.fromColors(
+                            baseColor: Colors.grey[850]!,
+                            highlightColor: Colors.grey[800]!,
+                            child: Container(
+                              height: 170.0,
+                              width: 120.0,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
                             ),
                           ),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
+                          height: 180.0,
+                          fit: BoxFit.cover,
                         ),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
-                        height: 180.0,
-                        fit: BoxFit.cover,
                       ),
                     ),
                   );
